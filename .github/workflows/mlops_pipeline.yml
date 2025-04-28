@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  build-train:
+  mlops_pipeline:
     runs-on: ubuntu-latest
 
     steps:
@@ -39,7 +39,7 @@ jobs:
         python run_pipeline.py
 
     - name: Upload Trained Model and Scaler as Artifact
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v2  
       with:
         name: trained-foodstamp-artifacts-${{ github.run_id }}
         path: |
