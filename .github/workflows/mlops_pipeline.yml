@@ -38,10 +38,10 @@ jobs:
       run: |
         python run_pipeline.py
 
-    - name: Upload Trained Model and Scaler as Artifact
-      uses: actions/upload-artifact@v3
-      with:
-        name: trained-foodstamp-artifacts-${{ github.run_id }}
-        path: |
-          models/model.pkl
-          models/scaler.pkl
+    # - name: Upload Trained Model and Scaler as Artifact
+    #   uses: actions/upload-artifact@v3
+    #   with:
+    #     name: trained-foodstamp-artifacts-${{ github.run_id }}
+    #     path: |
+    #       models/model.pkl
+    #       models/scaler.pkl
