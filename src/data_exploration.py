@@ -46,9 +46,7 @@ def get_categorical_value_counts(df: pd.DataFrame, threshold: int = 20):
         print(f"\nValue counts for '{col}':")
         print(df[col].value_counts(dropna=False))
 
-
-
-if __name__ == "__main__":
+def main():
     table_name = "BRONZE"
 
     print(f"Connecting to Snowflake and fetching table: {table_name}")
@@ -79,5 +77,9 @@ if __name__ == "__main__":
 
     print("\nCategorical Columns Value Counts:")
     get_categorical_value_counts(df)
+
+
+if __name__ == "__main__":
+    main()
 
  

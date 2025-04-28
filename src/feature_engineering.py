@@ -63,8 +63,7 @@ def drop_unnecessary_columns(df: pd.DataFrame, columns_to_drop: list) -> pd.Data
     print(f"Dropped columns: {columns_to_drop}")
     return df
 
-
-if __name__ == "__main__":
+def main():
     table_name = "SILVER"      
     new_table_name = "GOLD" 
 
@@ -170,7 +169,8 @@ if __name__ == "__main__":
     columns_to_drop = ["SERIALNO", "PUMA10", "PUMA20", "RESMODE", "HHLDRRAC1P", "HHLDRHISP", "HHLANP", "HHL", "YRBLT"] + weight_variables
 
     df = drop_unnecessary_columns(df, columns_to_drop)
-
-
     save_cleaned_dataframe(df, new_table_name)
+
+if __name__ == "__main__":
+    main()
 
