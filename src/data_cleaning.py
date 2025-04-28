@@ -66,12 +66,12 @@ def optimize_dtypes(df: pd.DataFrame) -> pd.DataFrame:
     print("Optimized numeric datatypes.")
     return df
 
-
-if __name__ == "__main__":
+def main():
     table_name = "BRONZE"
 
     print(f"Connecting to Snowflake and fetching table: {table_name}")
     df = fetch_table_as_dataframe(table_name)
+    print(f"Data Loaded: {df.shape[0]} rows, {df.shape[1]} columns\n")
 
     df = drop_single_value_columns(df)
     print(f"DataFrame shape after dropping single value columns: {df.shape}")
@@ -87,3 +87,6 @@ if __name__ == "__main__":
     df = optimize_dtypes(df)
     save_cleaned_dataframe(df, "SILVER")
     print("Cleaned data saved to Snowflake table: SILVER")
+
+if __name__ == "__main__":
+    main()

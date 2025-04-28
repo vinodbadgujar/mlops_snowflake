@@ -106,12 +106,13 @@ def save_model(model, scaler):
     print(f"Scaler saved to: {scaler_path}")
 
 
-if __name__ == "__main__":
+def main():
     # Load and prepare data
     table_name = "GOLD"
     print(f"Loading data from table: {table_name}")
     df = fetch_table_as_dataframe(table_name)
     df = prepare_data(df)
+    
     # Split data
     X_train, X_test, y_train, y_test = split_data(df)
     
@@ -131,3 +132,6 @@ if __name__ == "__main__":
     save_model(model, scaler)
     
     print("Food stamp classification modeling complete!")
+
+if __name__ == "__main__":
+    main()
