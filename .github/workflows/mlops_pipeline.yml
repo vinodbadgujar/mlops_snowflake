@@ -17,7 +17,7 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
-        python-version: 3.10
+        python-version: "3.10"
 
     - name: Install dependencies
       run: |
@@ -38,10 +38,10 @@ jobs:
       run: |
         python run_pipeline.py
 
-    # - name: Upload Trained Model and Scaler as Artifact
-    #   uses: actions/upload-artifact@v3
-    #   with:
-    #     name: trained-foodstamp-artifacts-${{ github.run_id }}
-    #     path: |
-    #       models/model.pkl
-    #       models/scaler.pkl
+    - name: Upload Trained Model and Scaler as Artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: trained-foodstamp-artifacts-${{ github.run_id }}
+        path: |
+          models/model.pkl
+          models/scaler.pkl
